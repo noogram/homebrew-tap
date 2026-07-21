@@ -19,28 +19,28 @@
 class Cosmon < Formula
   desc "Stateless CLI giving AI coding agents identity, lifecycle, and crash-recovery"
   homepage "https://github.com/noogram/cosmon"
-  version "0.2.1"
+  version "0.2.2"
   license "AGPL-3.0-only"
 
   on_macos do
     on_arm do
-      url "https://github.com/noogram/cosmon/releases/download/v0.2.1/cosmon-0.2.1-aarch64-apple-darwin.tar.gz"
-      sha256 "4ab064b8728d523e21f0bb2acd9a31d173ccc27b49f4dc661e1fd0ad5234c6d5"
+      url "https://github.com/noogram/cosmon/releases/download/v0.2.2/cosmon-0.2.2-aarch64-apple-darwin.tar.gz"
+      sha256 "793d3f2eff96bfda546facc6acf331957fc7fa1f21984f039f8de7f56f9df349"
     end
     on_intel do
-      url "https://github.com/noogram/cosmon/releases/download/v0.2.1/cosmon-0.2.1-x86_64-apple-darwin.tar.gz"
-      sha256 "411bce554caeb906b3c90d797a5aa39aa89bbfc426210abb89454ff202d5000b"
+      url "https://github.com/noogram/cosmon/releases/download/v0.2.2/cosmon-0.2.2-x86_64-apple-darwin.tar.gz"
+      sha256 "88ebd3a02e5eeeb7e827f22a933f334a22008aad6685c8c84d542a80a15775f8"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/noogram/cosmon/releases/download/v0.2.1/cosmon-0.2.1-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "6014a14ddc5495c8c103705c8524b9b1539c4a6b9b079dbc94383d32166b7094"
+      url "https://github.com/noogram/cosmon/releases/download/v0.2.2/cosmon-0.2.2-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "80ebebe79627b24fc2c9a822578eba1eeae7a1e587a0d137fba400d65d72d2e7"
     end
     on_intel do
-      url "https://github.com/noogram/cosmon/releases/download/v0.2.1/cosmon-0.2.1-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "02de6090d2156e50b7cdc205c8082f19a069a46f23ab8d4c16ed41dee948cafc"
+      url "https://github.com/noogram/cosmon/releases/download/v0.2.2/cosmon-0.2.2-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "130596b5ce8b8686d7419082c87552f06d738ee204939ac53ec7776b1d73a657"
     end
   end
 
@@ -54,7 +54,13 @@ class Cosmon < Formula
   end
 
   test do
-    assert_match "cs ", shell_output("#{bin}/cs --version")
-    assert_match "cosmon-remote ", shell_output("#{bin}/cosmon-remote --version")
+    # Assert the VERSION, not just the name. The previous `assert_match "cs "`
+    # form passed for any version at all, which is how v0.2.1 shipped a formula
+    # whose `cosmon-remote` answered "0.3.0" — a user who ran `brew install`
+    # for 0.2.1 and read 0.3.0 has every reason to think the install broke.
+    # Every shipped binary now reports the release version
+    # (packaging/shipped-binaries.txt).
+    assert_match "cs #{version}", shell_output("#{bin}/cs --version")
+    assert_match "cosmon-remote #{version}", shell_output("#{bin}/cosmon-remote --version")
   end
 end

@@ -19,28 +19,28 @@
 class Cosmon < Formula
   desc "Stateless CLI giving AI coding agents identity, lifecycle, and crash-recovery"
   homepage "https://github.com/noogram/cosmon"
-  version "0.5.0"
+  version "0.6.0"
   license "AGPL-3.0-only"
 
   on_macos do
     on_arm do
-      url "https://github.com/noogram/cosmon/releases/download/v0.5.0/cosmon-0.5.0-aarch64-apple-darwin.tar.gz"
-      sha256 "6c45c850862f1c84415370d6defb9d2efb4254eb8de83118e0e9aa939f631be3"
+      url "https://github.com/noogram/cosmon/releases/download/v0.6.0/cosmon-0.6.0-aarch64-apple-darwin.tar.gz"
+      sha256 "fb71145347fe9a7e180c6006d3254d508a965a718aa8540ab7d87a2ff9d3a3f8"
     end
     on_intel do
-      url "https://github.com/noogram/cosmon/releases/download/v0.5.0/cosmon-0.5.0-x86_64-apple-darwin.tar.gz"
-      sha256 "4273710577ece50f39f69185760d96256ee8a3400a81bd78f8ae6a885fa78860"
+      url "https://github.com/noogram/cosmon/releases/download/v0.6.0/cosmon-0.6.0-x86_64-apple-darwin.tar.gz"
+      sha256 "c4b2792d69936388118e11156e40a2c04cd80332c7c14c4d841c1d5a32207e87"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/noogram/cosmon/releases/download/v0.5.0/cosmon-0.5.0-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "9440030854ea5f0216dc6cbce6c753762a0606438f6e20a98bafffd2a50b3e86"
+      url "https://github.com/noogram/cosmon/releases/download/v0.6.0/cosmon-0.6.0-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "eeb2c15f2edf08ec8f9ccf933bd9304a557f0da0e90d969ca8455170daee9ca8"
     end
     on_intel do
-      url "https://github.com/noogram/cosmon/releases/download/v0.5.0/cosmon-0.5.0-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "cf717966673d5345584d331141bfe2073c053d8a14047a2fb4dd720cd04ee174"
+      url "https://github.com/noogram/cosmon/releases/download/v0.6.0/cosmon-0.6.0-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "728759dde8b4b8b1dd1c584b79c67686aebff4d90cb7f006a32f4885fb65ce25"
     end
   end
 
